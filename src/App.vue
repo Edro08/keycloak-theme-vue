@@ -1,17 +1,16 @@
 <script setup>
   import './assets/css/base.css'
-  import {ref, computed} from 'vue';
+  import {ref, computed, getCurrentInstance} from 'vue';
   import Login from "@/login/forms/Login.vue";
   import Register from "@/login/forms/Register.vue";
   import ResetPassword from "@/login/forms/ResetPassword.vue";
 
-  const currentAction = ref(window.__KC_CONTEXT?.action || '')
+  const { appContext } = getCurrentInstance()
+  const $env = appContext.config.globalProperties.$env
+  const $kc = appContext.config.globalProperties.$kc
 
-  const formMap = {
-    'login-actions/authenticate': 'login',
-    'login-actions/registration': 'register',
-    'login-actions/reset-credentials': 'reset-password'
-  }
+  const currentAction = ref($kc?.action || '')
+  const formMap = $env.app.actions
 
   const currentForm = computed(() => {
     return Object.entries(formMap).find(([key]) => currentAction.value.includes(key))?.[1] || null
@@ -25,4 +24,3 @@
     <ResetPassword v-else-if="currentForm === 'reset-password'" />
   </main>
 </template>
-

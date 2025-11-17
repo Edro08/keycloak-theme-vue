@@ -4,6 +4,12 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import { resolve } from "path";
+import * as fs from 'fs';
+
+const fileName = "app"
+const dirDeployLogin = "deploy/keycloak-theme/login/"
+const dirPublic = "public"
+const dirResources = "resources"
 
 export default defineConfig({
   define: {
@@ -12,16 +18,18 @@ export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
+    copyPublic(),
   ],
   build: {
-    outDir: resolve(__dirname, "keycloak-theme/login/resources"),
-    emptyOutDir: true, // Clear resources/
+    outDir: resolve(__dirname, dirDeployLogin + dirResources),
+    emptyOutDir: true,
+    copyPublicDir: false,
     lib: {
       entry: "src/main.js",
       name: "keycloak-theme",
-      fileName: "index",
+      fileName: fileName,
+      cssFileName: fileName
     },
-    rollupOptions: {},
   },
   resolve: {
     alias: {
@@ -29,3 +37,16 @@ export default defineConfig({
     },
   },
 })
+
+function copyPublic() {
+  return {
+    name: 'copy-public-dir-simple',
+    closeBundle() {
+      const source = resolve(__dirname, dirPublic);
+      const destination = resolve(__dirname, dirDeployLogin);
+      if (fs.existsSync(source)) {
+        fs.cpSync(source, destination, { recursive: true, force: true });
+      }
+    }
+  };
+}

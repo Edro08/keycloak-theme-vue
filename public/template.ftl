@@ -5,7 +5,10 @@
         <meta charset="UTF-8">
         <title>${msg("loginTitle", realm.name)!''}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="${url.resourcesPath}/index.css">
+        <link rel="stylesheet" href="${url.resourcesPath}/app.css">
+    </head>
+    <body>
+        <div id="app"></div>
 
         <script>
           window.__KC_CONTEXT = {
@@ -20,12 +23,9 @@
             }
           };
         </script>
-    </head>
-    <body>
-        <div id="app"></div>
-        <script type="module" src="${url.resourcesPath}/index.js"></script>
+
+        <script type="module" src="${url.resourcesPath}/env.js"></script>
+        <script type="module" src="${url.resourcesPath}/app.js"></script>
     </body>
     </html>
 </#macro>
-
-
