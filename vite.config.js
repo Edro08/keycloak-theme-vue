@@ -7,7 +7,7 @@ import { resolve } from "path";
 import * as fs from 'fs';
 
 const fileName = "app"
-const dirDeployLogin = "deploy/keycloak-theme/login/"
+const dirDeployLogin = "dist/keycloak-theme/login/"
 const dirPublic = "public"
 const dirResources = "resources"
 
@@ -40,7 +40,7 @@ export default defineConfig({
 
 function copyPublic() {
   return {
-    name: 'copy-public-dir-simple',
+    name: 'copy-public',
     closeBundle() {
       const source = resolve(__dirname, dirPublic);
       const destination = resolve(__dirname, dirDeployLogin);

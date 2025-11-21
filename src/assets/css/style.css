@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --background-main: #f8f8f8f8;
+    --background-form: #ffffff;
+    --background-header-footer: #10001A;
+
+    --primary-color: #1570EF;
+    --secondary-color: #10001A;
+
+    --font-family: 'Poppins', sans-serif;
+    --font-size: 14px;
+
+    --height-header: 50px;
+    --height-footer: 200px;
+    --height-button: 48px;
+    --height-input: 48px;
+
+    --padding-base: 0.5rem;
+    --margin-base: 0.5rem;
+}
+
+body {
+    background: var(--background-main);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    margin: 0;
+    padding: 0;
+}
+
+.input {
+    width: 100%;
+    height: var(--height-input);
+    background-color: #f8f8ff;
+    padding: var(--padding-base);
+    box-sizing: border-box;
+}
+
+.button {
+    width: 100%;
+    height: var(--height-button);
+    padding: var(--padding-base);
+    box-sizing: border-box;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: var(--secondary-color);
+}
+
+.label {
+    display: block;
+    margin-top: var(--margin-base);
+    margin-bottom: var(--margin-base);
+}
+
+.checkbox {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: var(--margin-base);
+    margin-bottom: var(--margin-base);
+}
+
+.kc-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.kc-header {
+    background: var(--background-header-footer);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: var(--height-header);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    position: relative;
+}
+
+.kc-footer {
+    background: var(--background-header-footer);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: var(--height-footer);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    position: relative;
+}
+
+.kc-form {
+    max-width: 400px;
+    width: 100%;
+    background: var(--background-form);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: auto; /* Centra el formulario vertical y horizontalmente en el espacio disponible */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.kc-main-title{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+}
+
+.kc-error {
+    color: #ff4d4d;
+}

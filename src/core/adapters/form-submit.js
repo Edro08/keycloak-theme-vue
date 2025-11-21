@@ -1,4 +1,8 @@
-export function useKCSubmit() {
+/**
+ * Adapter for handling Keycloak form submissions.
+ * Creates a hidden form and submits it to the specified action URL.
+ */
+export function useFormSubmit() {
     const submitKCForm = ({ action, method, fields }) => {
         const form = document.createElement('form');
         form.method = method;

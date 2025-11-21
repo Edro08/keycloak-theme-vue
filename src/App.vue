@@ -1,26 +1,28 @@
 <script setup>
-  import './assets/css/base.css'
-  import {ref, computed, getCurrentInstance} from 'vue';
-  import Login from "@/login/forms/Login.vue";
-  import Register from "@/login/forms/Register.vue";
-  import ResetPassword from "@/login/forms/ResetPassword.vue";
+  import { computed } from 'vue';
+  import Login from "@/login/pages/Login.vue";
+  import ResetPassword from "@/login/pages/ResetPassword.vue";
+  import UpdatePassword from "@/login/pages/UpdatePassword.vue";
+  import { useKeycloakContext } from "@/core/adapters/kc-ctx";
+  import Header from "@/login/pages/Header.vue";
+  import Footer from "@/login/pages/Footer.vue";
 
-  const { appContext } = getCurrentInstance()
-  const $env = appContext.config.globalProperties.$env
-  const $kc = appContext.config.globalProperties.$kc
+  const { login, config } = useKeycloakContext()
 
-  const currentAction = ref($kc?.action || '')
-  const formMap = $env.app.actions
+  const currentAction = login.actionUrl
+  const formMap = config.actions
 
   const currentForm = computed(() => {
-    return Object.entries(formMap).find(([key]) => currentAction.value.includes(key))?.[1] || null
+    return Object.entries(formMap).find(([key]) => currentAction.includes(key))?.[1] || null
   })
 </script>
 
 <template>
   <main class="kc-main">
+    <Header/>
     <Login v-if="currentForm === 'login'" />
-    <Register v-else-if="currentForm === 'register'" />
     <ResetPassword v-else-if="currentForm === 'reset-password'" />
+    <UpdatePassword v-else-if="currentForm === 'update-password'" />
+    <Footer/>
   </main>
 </template>

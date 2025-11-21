@@ -11,7 +11,7 @@
         <div id="app"></div>
 
         <script>
-          window.__KC_CONTEXT = {
+          window.kc_context = {
             realm: "${realm.name!''}",
             action: "${url.loginAction!''}",
             username: "${login.username!''}",

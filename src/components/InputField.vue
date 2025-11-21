@@ -14,7 +14,6 @@ const emit = defineEmits(['update:modelValue']);
 
 <template>
   <input
-      type="password"
       :class="className"
       :id="id"
       :autocomplete="autocomplete"
@@ -23,13 +22,3 @@ const emit = defineEmits(['update:modelValue']);
       @input="emit('update:modelValue', $event.target.value)"
   />
 </template>
-
-<style scoped>
-  input {
-    width: 100%;
-    height: 48px;
-    background-color: #f8f8ff;
-    padding: 0.5rem;
-    box-sizing: border-box;
-  }
-</style>

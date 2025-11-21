@@ -4,8 +4,4 @@
 
 <template>
 
-</template>
-
-<style scoped>
-
-</style>
+</template>>
