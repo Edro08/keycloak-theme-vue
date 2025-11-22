@@ -1,119 +1,237 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 :root {
-    --background-main: #f8f8f8f8;
-    --background-form: #ffffff;
-    --background-header-footer: #10001A;
+  --background-main: #f8f8f8f8;
+  --background-form: #ffffff;
+  --background-header-footer: #10001a;
 
-    --primary-color: #1570EF;
-    --secondary-color: #10001A;
+  --primary-color: #1570ef;
+  --secondary-color: #10001a;
 
-    --font-family: 'Poppins', sans-serif;
-    --font-size: 14px;
+  --font-family: "Poppins", sans-serif;
+  --font-size: 14px;
 
-    --height-header: 50px;
-    --height-footer: 200px;
-    --height-button: 48px;
-    --height-input: 48px;
+  --height-header: 50px;
+  --height-footer: 50px;
+  --height-button: 48px;
+  --height-input: 48px;
 
-    --padding-base: 0.5rem;
-    --margin-base: 0.5rem;
+  --padding-base: 0.5rem;
+  --margin-base: 0.5rem;
 }
 
 body {
-    background: var(--background-main);
-    font-family: var(--font-family);
-    font-size: var(--font-size);
-    margin: 0;
-    padding: 0;
+  background: var(--background-main);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  margin: 0;
+  padding: 0;
 }
 
 .input {
-    width: 100%;
-    height: var(--height-input);
-    background-color: #f8f8ff;
-    padding: var(--padding-base);
-    box-sizing: border-box;
+  width: 100%;
+  height: var(--height-input);
+  background-color: #f8f8ff;
+  padding: var(--padding-base);
+  box-sizing: border-box;
 }
 
 .button {
-    width: 100%;
-    height: var(--height-button);
-    padding: var(--padding-base);
-    box-sizing: border-box;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
+  width: 100%;
+  height: var(--height-button);
+  padding: var(--padding-base);
+  box-sizing: border-box;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1rem;
 }
 
 .button:hover {
-    background-color: var(--secondary-color);
+  background-color: var(--secondary-color);
+}
+
+.button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button-secondary {
+  background-color: #6b7280;
+}
+
+.button-secondary:hover {
+  background-color: #4b5563;
+}
+
+.button-secondary:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .label {
-    display: block;
-    margin-top: var(--margin-base);
-    margin-bottom: var(--margin-base);
+  display: block;
+  margin-top: var(--margin-base);
+  margin-bottom: var(--margin-base);
 }
 
 .checkbox {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: var(--margin-base);
-    margin-bottom: var(--margin-base);
+  display: flex;
+  gap: 0.5rem;
+  margin-top: var(--margin-base);
 }
 
 .kc-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 .kc-header {
-    background: var(--background-header-footer);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: var(--height-header);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 10;
-    position: relative;
+  background: var(--background-header-footer);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: var(--height-header);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 10;
+  position: relative;
 }
 
 .kc-footer {
-    background: var(--background-header-footer);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: var(--height-footer);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 10;
-    position: relative;
+  background: var(--background-header-footer);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: var(--height-footer);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 10;
+  position: relative;
 }
 
 .kc-form {
-    max-width: 400px;
-    width: 100%;
-    background: var(--background-form);
-    padding: 2rem;
-    border-radius: 8px;
-    margin: auto; /* Centra el formulario vertical y horizontalmente en el espacio disponible */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  max-width: 400px;
+  width: 100%;
+  background: var(--background-form);
+  padding: 2rem;
+  border-radius: 8px;
+  margin: auto; /* Centra el formulario vertical y horizontalmente en el espacio disponible */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-.kc-main-title{
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
+.kc-main-title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
 }
 
 .kc-error {
-    color: #ff4d4d;
+  color: #ff4d4d;
+}
+
+.kc-forgot-password {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.kc-forgot-password a {
+  color: #1570ef;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.kc-forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.kc-info-message {
+  text-align: center;
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background-color: rgba(21, 112, 239, 0.1);
+  border-radius: 4px;
+  font-size: 14px;
+  color: #555;
+}
+
+.kc-back-to-login {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.kc-back-to-login a {
+  color: #1570ef;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.kc-back-to-login a:hover {
+  text-decoration: underline;
+}
+
+.kc-error-title {
+  color: #ff4d4d;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.kc-error-message {
+  text-align: center;
+}
+
+.kc-error-instruction {
+  margin: 1rem 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.kc-back-to-app {
+  margin-top: 2rem;
+}
+
+.kc-back-to-app a {
+  color: #1570ef;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.kc-back-to-app a:hover {
+  text-decoration: underline;
+}
+
+.kc-page-expired-title {
+  color: #f59e0b;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.kc-page-expired-message {
+  text-align: center;
+}
+
+.kc-page-expired-instruction {
+  margin: 1rem 0;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.kc-page-expired-instruction a {
+  color: #1570ef;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.kc-page-expired-instruction a:hover {
+  text-decoration: underline;
 }

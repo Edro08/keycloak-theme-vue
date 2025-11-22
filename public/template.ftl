@@ -12,14 +12,34 @@
 
         <script>
           window.kc_context = {
-            realm: "${realm.name!''}",
-            action: "${url.loginAction!''}",
-            username: "${login.username!''}",
-            error: "<#if message??>${message.summary!''}</#if>",
-            login: {
+            // Realm configuration
+            realm_config: {
+              name: "${realm.name!''}",
               rememberMe: ${realm.rememberMe?c},
-              forgotPassword: ${realm.resetPasswordAllowed?c},
-              loginResetCredentialsUrl: "${url.loginResetCredentialsUrl!''}"
+              resetPasswordAllowed: ${realm.resetPasswordAllowed?c},
+              loginWithEmailAllowed: ${realm.loginWithEmailAllowed?c},
+              registrationEmailAsUsername: ${realm.registrationEmailAsUsername?c},
+              duplicateEmailsAllowed: ${realm.duplicateEmailsAllowed?c},
+              isAppInitiatedAction: <#if isAppInitiatedAction??>true<#else>false</#if>
+            },
+            
+            // User data
+            user: {
+              username: "${login.username!''}"
+            },
+            
+            // URLs
+            urls: {
+              loginAction: "${url.loginAction!''}",
+              loginResetCredentials: "${url.loginResetCredentialsUrl!''}",
+              login: "${url.loginUrl!''}",
+              resourcesPath: "${url.resourcesPath!''}",
+              loginRestartFlowUrl: "${url.loginRestartFlowUrl!''}"
+            },
+            
+            // Messages
+            message: {
+              error: "<#if message??>${message.summary!''}</#if>"
             }
           };
         </script>

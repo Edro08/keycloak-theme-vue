@@ -1,0 +1,42 @@
+{
+  "pages": {
+    "login": {
+      "title": "Inicia sesión con tu cuenta",
+      "usernameLabel": "Usuario",
+      "passwordLabel": "Contraseña",
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "rememberMe": "Recordarme",
+      "submitButton": "Iniciar sesión"
+    },
+    "resetPassword": {
+      "title": "Recuperar contraseña",
+      "usernameLabel": "Usuario",
+      "infoMessage": {
+        "duplicateEmailsAllowed": "Ingresa tu nombre de usuario y te enviaremos instrucciones para restablecer tu contraseña.",
+        "default": "Ingresa tu nombre de usuario o email y te enviaremos instrucciones para restablecer tu contraseña."
+      },
+      "backToLogin": "Volver al inicio de sesión",
+      "submitButton": "Enviar"
+    },
+    "updatePassword": {
+      "title": "Actualizar contraseña",
+      "passwordNewLabel": "Nueva contraseña",
+      "passwordConfirmLabel": "Confirmar contraseña",
+      "logoutOtherSessions": "Cerrar sesión en otros dispositivos",
+      "submitButton": "Actualizar",
+      "cancelButton": "Cancelar"
+    },
+    "pageExpired": {
+      "title": "La página ha expirado",
+      "message1": "Tu sesión ha expirado.",
+      "message2": "Si deseas continuar donde lo dejaste,",
+      "clickHere": "haz clic aquí",
+      "toRestart": "para reiniciar el proceso de inicio de sesión.",
+      "toContinue": "para intentar continuar."
+    },
+    "error": {
+      "title": "Error",
+      "backToApplication": "Volver a la aplicación"
+    }
+  }
+}

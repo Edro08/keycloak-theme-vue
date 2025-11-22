@@ -1,0 +1,42 @@
+{
+  "pages": {
+    "login": {
+      "title": "Sign in to your account",
+      "usernameLabel": "Username",
+      "passwordLabel": "Password",
+      "forgotPassword": "Forgot your password?",
+      "rememberMe": "Remember me",
+      "submitButton": "Sign in"
+    },
+    "resetPassword": {
+      "title": "Reset password",
+      "usernameLabel": "Username",
+      "infoMessage": {
+        "duplicateEmailsAllowed": "Enter your username and we will send you instructions to reset your password.",
+        "default": "Enter your username or email and we will send you instructions to reset your password."
+      },
+      "backToLogin": "Back to login",
+      "submitButton": "Submit"
+    },
+    "updatePassword": {
+      "title": "Update password",
+      "passwordNewLabel": "New password",
+      "passwordConfirmLabel": "Confirm password",
+      "logoutOtherSessions": "Sign out from other devices",
+      "submitButton": "Update",
+      "cancelButton": "Cancel"
+    },
+    "pageExpired": {
+      "title": "Page has expired",
+      "message1": "Your session has expired.",
+      "message2": "If you want to continue where you left off,",
+      "clickHere": "click here",
+      "toRestart": "to restart the login process.",
+      "toContinue": "to try to continue."
+    },
+    "error": {
+      "title": "Error",
+      "backToApplication": "Back to application"
+    }
+  }
+}

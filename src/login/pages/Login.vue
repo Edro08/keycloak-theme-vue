@@ -8,14 +8,23 @@
   import { useFormSubmit } from '@/core/adapters/form-submit';
   import { useKeycloakContext } from '@/core/adapters/kc-ctx';
 
-  const { login, realm, message } = useKeycloakContext();
+  const { user, urls, realm, message, config } = useKeycloakContext();
   const { submitKCForm } = useFormSubmit();
-  const username = ref(login.username || '');
+  
+  // Get texts from config
+  const texts = config.pages?.login || {};
+  const username = ref(user.username || '');
   const password = ref('');
   const rememberMe = realm.rememberMe;
-  const loginAction = login.actionUrl;
+  const loginAction = urls.loginAction;
+  const isSubmitting = ref(false);
 
   const onSubmit = () => {
+    // Prevent double submit
+    if (isSubmitting.value) return;
+    
+    isSubmitting.value = true;
+    
     submitKCForm({
       action: loginAction,
       method: 'POST',
@@ -31,7 +40,7 @@
 <template>
   <form class="kc-form" @submit.prevent="onSubmit">
     <div>
-      <LabelField class-name="kc-main-title" text="Inicia sesión con tu cuenta"/>
+      <LabelField class-name="kc-main-title" :text="texts.title || 'Inicia sesión con tu cuenta'"/>
     </div>
 
     <!-- Username -->
@@ -47,13 +56,18 @@
     </div>
 
     <!-- Remember Me -->
-    <div>
-      <CheckBox class-name="checkbox" id="kc-ck-remember" v-model="rememberMe" label="Recordarme"/>
+    <div v-if="realm.rememberMe">
+      <CheckBox class-name="checkbox" id="kc-ck-remember" v-model="rememberMe" :label="texts.rememberMe || 'Recordarme'"/>
     </div>
 
     <!-- Submit -->
     <div>
-      <Button class-name="button" label="Iniciar sesión" type="submit"/>
+      <Button class-name="button" :label="texts.submitButton || 'Iniciar sesión'" type="submit" :disabled="isSubmitting"/>
+    </div>
+
+    <!-- Forgot Password Link -->
+    <div v-if="realm.resetPasswordAllowed" class="kc-forgot-password">
+      <a :href="urls.loginResetCredentials">{{ texts.forgotPassword || '¿Olvidaste tu contraseña?' }}</a>
     </div>
 
     <!-- Error -->

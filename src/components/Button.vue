@@ -5,6 +5,7 @@ const props = defineProps({
   label: { type: String, required: true },
   className: { type: String, default: '' },
   type: { type: String, default: 'button' },
+  disabled: { type: Boolean, default: false },
   onClick: { type: Function }
 });
 
@@ -14,6 +15,7 @@ const props = defineProps({
   <button
       :type="type"
       :class="className"
+      :disabled="disabled"
       @click="onClick ? onClick() : null">
     {{ label }}
   </button>
