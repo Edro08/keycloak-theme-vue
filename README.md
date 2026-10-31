@@ -3,7 +3,7 @@
 [![Keycloak](https://img.shields.io/badge/Keycloak-26.x%2B-blue.svg?logo=keycloak&logoColor=white)](https://www.keycloak.org/)
 [![Vue 3](https://img.shields.io/badge/Vue-3.x-42b883.svg?logo=vuedotjs&logoColor=white)](https://vuejs.org/)
 [![Vite](https://img.shields.io/badge/Vite-7.x-646CFF.svg?logo=vite&logoColor=white)](https://vitejs.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Tema de autenticación y autoservicio moderno y de alta fidelidad para **Keycloak**, construido con **Vue 3**, **Vite** y **Design Tokens (CSS Variables)**. Diseñado con arquitectura desacoplada, soporte para múltiples idiomas en caliente y cobertura total para flujos corporativos de identidad.
 
@@ -108,4 +108,4 @@ Los textos de toda la interfaz se encuentran desacoplados en archivos JSON dentr
 
 ## 📄 Licencia
 
-Distribuido bajo la licencia **MIT**. Consulta el archivo `LICENSE` para más información.
+Distribuido bajo la licencia **Apache License 2.0**. Consulta los archivos [`LICENSE`](./LICENSE) y [`NOTICE`](./NOTICE) para más información.
