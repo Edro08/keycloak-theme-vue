@@ -1,0 +1,744 @@
+/* ==========================================================================
+   Reusable UI Components
+   ========================================================================== */
+
+/* ---------------- Form Groups & Field Headers ---------------- */
+.kc-form-group {
+  margin-bottom: 1.15rem;
+}
+
+.kc-field-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+
+.kc-field-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-slate-700);
+  margin-bottom: 0.4rem;
+}
+
+.kc-field-header-row .kc-field-label {
+  margin-bottom: 0;
+}
+
+.label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-slate-700);
+  margin-top: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+/* ---------------- Inputs ---------------- */
+.kc-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.kc-input-leading-icon {
+  position: absolute;
+  left: 12px;
+  width: 18px;
+  height: 18px;
+  color: var(--color-slate-400);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.kc-input-with-icon {
+  width: 100%;
+  height: var(--height-input);
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-sm);
+  padding: 0 12px 0 38px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--color-slate-900);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.kc-input-with-icon:hover {
+  border-color: var(--color-slate-400);
+}
+
+.kc-input-with-icon:focus {
+  outline: none;
+  background-color: var(--color-white);
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 3px var(--primary-focus-ring);
+}
+
+.input {
+  width: 100%;
+  height: var(--height-input);
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-sm);
+  padding: 0 12px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--color-slate-900);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 3px var(--primary-focus-ring);
+}
+
+/* ---------------- Password Toggle ---------------- */
+.kc-password-field-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.kc-password-toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-slate-400);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+}
+
+.kc-password-toggle-btn:hover {
+  color: var(--color-slate-600);
+}
+
+.kc-password-toggle-btn:focus {
+  outline: none;
+  color: var(--primary-color);
+}
+
+.kc-eye-svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------------- Checkbox ---------------- */
+.kc-remember-row {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.kc-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--color-slate-600);
+  cursor: pointer;
+  user-select: none;
+}
+
+.kc-checkbox-label input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+  border-radius: 4px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--color-slate-600);
+}
+
+/* ---------------- Buttons ---------------- */
+.kc-submit-wrapper {
+  margin-top: 0.5rem;
+}
+
+.kc-submit-btn {
+  width: 100%;
+  height: var(--height-input);
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px var(--primary-shadow);
+  transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.kc-submit-btn:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 6px 16px var(--primary-shadow);
+}
+
+.kc-submit-btn:active {
+  background-color: var(--primary-active);
+  transform: translateY(1px);
+}
+
+.kc-submit-btn:disabled,
+.kc-submit-btn.is-loading {
+  background-color: var(--color-slate-400);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.button {
+  width: 100%;
+  height: var(--height-input);
+  padding: 0 1rem;
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-top: 1.25rem;
+  box-shadow: 0 4px 12px var(--primary-shadow);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.button:hover {
+  background-color: var(--primary-hover);
+}
+
+.button:disabled {
+  background-color: var(--color-slate-400);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.button-secondary {
+  background-color: var(--color-slate-600);
+  box-shadow: none;
+}
+
+.button-secondary:hover {
+  background-color: var(--color-slate-700);
+}
+
+.kc-btn-secondary {
+  width: 100%;
+  height: var(--height-input);
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-700);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--color-slate-300);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.kc-btn-secondary:hover {
+  background-color: var(--color-slate-200);
+}
+
+.kc-btn-dark {
+  background-color: var(--color-slate-900) !important;
+}
+
+.kc-btn-dark:hover {
+  background-color: var(--color-slate-800) !important;
+}
+
+.kc-btn-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.kc-btn-spinner {
+  width: 16px;
+  height: 16px;
+  animation: kc-spin 0.8s linear infinite;
+}
+
+@keyframes kc-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---------------- Alerts & Message Banners ---------------- */
+.kc-error-card {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: var(--color-error-bg);
+  border: 1px solid var(--color-error-border);
+  color: var(--color-error-text);
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.kc-error-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-error-icon);
+  flex-shrink: 0;
+}
+
+.kc-error-text {
+  line-height: 1.4;
+}
+
+.kc-info-card {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: var(--color-info-bg);
+  border: 1px solid var(--color-info-border);
+  color: var(--color-info-text);
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.kc-info-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-info-icon);
+  flex-shrink: 0;
+}
+
+.kc-info-text {
+  line-height: 1.4;
+}
+
+.kc-success-card {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: var(--color-success-bg);
+  border: 1px solid var(--color-success-border);
+  color: var(--color-success-text);
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.kc-success-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-success-icon);
+  flex-shrink: 0;
+}
+
+.kc-success-text {
+  line-height: 1.4;
+}
+
+.kc-error {
+  color: var(--color-error-text);
+  background: var(--color-error-bg);
+  border: 1px solid var(--color-error-border);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.kc-info-message {
+  text-align: center;
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background-color: var(--primary-light);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--color-slate-700);
+}
+
+.kc-info-box {
+  background-color: var(--color-slate-50);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+/* ---------------- Status Pills & Badges ---------------- */
+.kc-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.kc-status-pill-amber {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning-text);
+  border: 1px solid var(--color-warning-border);
+}
+
+.kc-status-pill-red {
+  background-color: var(--color-error-bg);
+  color: var(--color-error-text);
+  border: 1px solid var(--color-error-border);
+}
+
+.kc-status-pill-blue {
+  background-color: var(--color-info-bg);
+  color: var(--primary-hover);
+  border: 1px solid var(--color-info-border);
+}
+
+.kc-status-pill-green {
+  background-color: var(--color-success-bg);
+  color: var(--color-success-text);
+  border: 1px solid var(--color-success-border);
+}
+
+.kc-status-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.kc-info-badge,
+.kc-error-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.kc-info-badge {
+  background: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.kc-error-badge {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.kc-info-svg,
+.kc-error-badge-svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* ---------------- Contextual Help & Technical Details ---------------- */
+.kc-help-box {
+  background-color: var(--color-slate-50);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.kc-dot-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 0.35rem;
+  flex-shrink: 0;
+}
+
+.kc-dot-amber { background-color: var(--color-warning-icon); }
+.kc-dot-blue { background-color: var(--primary-color); }
+.kc-dot-green { background-color: var(--color-success-icon); }
+
+.kc-help-text {
+  font-size: 0.78rem;
+  color: var(--color-slate-600);
+  line-height: 1.45;
+}
+
+.kc-help-bold {
+  display: block;
+  font-weight: 700;
+  color: var(--color-slate-800);
+  margin-bottom: 0.15rem;
+}
+
+.kc-tech-detail-box {
+  background-color: var(--color-slate-50);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.kc-tech-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-slate-400);
+  margin-bottom: 0.25rem;
+}
+
+.kc-tech-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-error);
+  word-break: break-all;
+}
+
+/* ---------------- Navigation & Links ---------------- */
+.kc-forgot-link {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.kc-forgot-link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.kc-back-link-wrapper {
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+.kc-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.kc-back-link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.kc-arrow-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.kc-forgot-password,
+.kc-back-to-login,
+.kc-back-to-app {
+  text-align: center;
+  margin-top: 1.25rem;
+}
+
+.kc-forgot-password a,
+.kc-back-to-login a,
+.kc-back-to-app a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.kc-forgot-password a:hover,
+.kc-back-to-login a:hover,
+.kc-back-to-app a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------- Top Bar & Language Selector ---------------- */
+.kc-top-bar {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.kc-locale-switcher {
+  display: flex;
+  align-items: center;
+}
+
+.kc-locale-pills {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--card-bg);
+  padding: 0.25rem 0.35rem 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-slate-200);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
+}
+
+.kc-globe-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-slate-400);
+  margin-right: 0.2rem;
+  flex-shrink: 0;
+}
+
+.kc-locale-pill-btn {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  color: var(--color-slate-500);
+  text-decoration: none;
+  transition: all 0.15s ease;
+  line-height: 1.2;
+}
+
+.kc-locale-pill-btn:hover {
+  color: var(--color-slate-900);
+  background: var(--color-slate-100);
+}
+
+.kc-locale-pill-btn.is-active {
+  background: var(--primary-color);
+  color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.kc-locale-dropdown-wrapper {
+  position: relative;
+}
+
+.kc-locale-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--card-bg);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-slate-200);
+  box-shadow: var(--shadow-sm);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-slate-700);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kc-locale-dropdown-trigger:hover {
+  background: var(--color-slate-50);
+  border-color: var(--color-slate-300);
+  color: var(--color-slate-900);
+}
+
+.kc-dropdown-arrow {
+  width: 14px;
+  height: 14px;
+  color: var(--color-slate-400);
+  transition: transform 0.2s ease;
+}
+
+.kc-dropdown-arrow.is-open {
+  transform: rotate(180deg);
+}
+
+.kc-locale-menu {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  min-width: 150px;
+  max-height: 240px;
+  overflow-y: auto;
+  background: var(--card-bg);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  padding: 0.35rem;
+  z-index: 100;
+}
+
+.kc-locale-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-slate-700);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.kc-locale-menu-item:hover {
+  background: var(--color-slate-50);
+  color: var(--color-slate-900);
+}
+
+.kc-locale-menu-item.is-active {
+  background: var(--primary-light);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.kc-locale-check-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--primary-color);
+}
+
+.kc-fade-enter-active,
+.kc-fade-leave-active {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.kc-fade-enter-from,
+.kc-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}

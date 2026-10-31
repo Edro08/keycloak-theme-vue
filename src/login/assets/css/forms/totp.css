@@ -1,0 +1,111 @@
+/* ==========================================================================
+   2FA / TOTP Configuration & Verification
+   ========================================================================== */
+
+.kc-totp-card {
+  max-width: 480px;
+}
+
+.kc-qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-bg);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-md);
+}
+
+.kc-qr-image {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+.kc-qr-hint {
+  font-size: 0.78rem;
+  color: var(--color-slate-500);
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.kc-manual-toggle {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.4rem;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.kc-manual-toggle:hover {
+  color: var(--primary-hover);
+}
+
+.kc-manual-box {
+  width: 100%;
+  background: var(--color-slate-50);
+  border: 1px dashed var(--color-slate-300);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.kc-manual-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-slate-800);
+  letter-spacing: 0.05em;
+  word-break: break-all;
+}
+
+.kc-copy-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--color-slate-200);
+  color: var(--color-slate-700);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.kc-copy-btn:hover {
+  background: var(--color-slate-100);
+  border-color: var(--color-slate-300);
+}
+
+.kc-totp-steps {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.kc-totp-step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: var(--color-white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}

@@ -5,6 +5,7 @@ const props = defineProps({
   modelValue: String,
   className: String,
   id: String,
+  placeholder: String,
   autocomplete: String,
   autofocus: Boolean
 });
@@ -14,9 +15,9 @@ const emit = defineEmits(['update:modelValue']);
 
 <template>
   <input
-      type="password"
       :class="className"
       :id="id"
+      :placeholder="placeholder"
       :autocomplete="autocomplete"
       :autofocus="autofocus"
       :value="modelValue"

@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@9.15.0",
   "engines": {
-    "node": "^20.19.0 || >=22.12.0"
+    "node": "^20.19.0 || >=22.12.0",
+    "pnpm": ">=9.0.0"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "vite build && docker cp ./dist/keycloak-theme keycloak:/opt/keycloak/themes/"
+    "deploy": "pnpm run build && docker cp ./dist/keycloak-theme keycloak:/opt/keycloak/themes/"
   },
   "dependencies": {
     "vue": "^3.5.18"

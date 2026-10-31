@@ -2,8 +2,10 @@
 /.vscode/
 /.idea/
 /node_modules/
+/.pnpm-store/
 /dist/
 /deploy/
+/agents/
 
 # Files
 logs

@@ -1,42 +1,288 @@
 {
+  "brand": {
+    "pitchTitle": "Unified & Secure Access",
+    "pitchDesc": "Centralized platform for corporate authentication and identity management.",
+    "trustText": "Identity protection and secure sessions"
+  },
   "pages": {
     "login": {
       "title": "Sign in to your account",
-      "usernameLabel": "Username",
+      "subtitle": "Enter your credentials to access your account",
+      "usernameLabel": "Username or Email",
+      "usernamePlaceholder": "name@company.com",
       "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
       "forgotPassword": "Forgot your password?",
       "rememberMe": "Remember me",
-      "submitButton": "Sign in"
+      "submitButton": "Sign in",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Sign up"
+    },
+    "register": {
+      "title": "Sign up",
+      "subtitle": "Enter your personal details to create your access",
+      "firstNameLabel": "First name",
+      "firstNamePlaceholder": "John",
+      "lastNameLabel": "Last name",
+      "lastNamePlaceholder": "Doe",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "john.doe@company.com",
+      "usernameLabel": "Username",
+      "usernamePlaceholder": "johndoe",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "passwordConfirmLabel": "Confirm Password",
+      "passwordConfirmPlaceholder": "••••••••",
+      "passwordMismatch": "Passwords do not match.",
+      "submitButton": "Create account",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Sign in"
     },
     "resetPassword": {
       "title": "Reset password",
-      "usernameLabel": "Username",
+      "subtitle": "Enter your registered username or email to receive reset instructions.",
+      "usernameLabel": "Username or Email",
+      "usernamePlaceholder": "name@company.com",
       "infoMessage": {
         "duplicateEmailsAllowed": "Enter your username and we will send you instructions to reset your password.",
         "default": "Enter your username or email and we will send you instructions to reset your password."
       },
-      "backToLogin": "Back to login",
-      "submitButton": "Submit"
+      "submitButton": "Send instructions",
+      "backToLogin": "Back to login"
     },
     "updatePassword": {
       "title": "Update password",
+      "subtitle": "Set a secure new password for your account.",
       "passwordNewLabel": "New password",
+      "passwordNewPlaceholder": "••••••••",
       "passwordConfirmLabel": "Confirm password",
+      "passwordConfirmPlaceholder": "••••••••",
       "logoutOtherSessions": "Sign out from other devices",
-      "submitButton": "Update",
-      "cancelButton": "Cancel"
+      "submitButton": "Update password",
+      "cancelButton": "Cancel",
+      "backToLogin": "Back to login"
+    },
+    "updateProfile": {
+      "pill": "Required Action",
+      "title": "Complete your profile",
+      "subtitle": "Please verify or update your basic account information to continue.",
+      "firstNameLabel": "First name",
+      "firstNamePlaceholder": "John",
+      "lastNameLabel": "Last name",
+      "lastNamePlaceholder": "Doe",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "john.doe@company.com",
+      "usernameLabel": "Username",
+      "usernamePlaceholder": "johndoe",
+      "submitButton": "Save and continue",
+      "cancelButton": "Cancel and back to login"
+    },
+    "verifyEmail": {
+      "pill": "Pending Verification",
+      "title": "Check your email",
+      "desc": "We sent a confirmation link to",
+      "descEnd": "Please open the link to activate your account.",
+      "helpBold": "Didn't receive the email?",
+      "helpText": "Check your spam or junk folder. If you still cannot find it, request a new link below.",
+      "resendButton": "Resend verification email",
+      "backToLogin": "Back to login"
+    },
+    "configureTotp": {
+      "pill": "Two-Factor Authentication",
+      "title": "Configure authenticator (OTP)",
+      "desc": "Scan the QR code with your authenticator app (Google Authenticator, Microsoft Authenticator, or Authy) and enter the generated code.",
+      "qrHint": "Open your app and scan this image",
+      "manualToggle": "Can't scan the code? View manual key",
+      "manualBack": "← Show QR code again",
+      "manualTitle": "Manual Secret Key",
+      "manualHint": "Enter this key directly into your authenticator app.",
+      "copyBtn": "Copy",
+      "copiedBtn": "Copied!",
+      "otpLabel": "Authentication code",
+      "otpPlaceholder": "e.g. 123456",
+      "deviceLabel": "Device name (optional)",
+      "devicePlaceholder": "e.g. My phone / Google Authenticator",
+      "logoutOtherSessions": "Sign out from other devices",
+      "submitButton": "Save and Enable 2FA",
+      "backToLogin": "Back to login"
+    },
+    "loginOtp": {
+      "pill": "Two-Step Verification",
+      "title": "Authentication code",
+      "desc": "Enter the 6-digit code shown in your authenticator app to verify your identity.",
+      "deviceSelectorLabel": "Select your device",
+      "otpLabel": "One-time code",
+      "otpPlaceholder": "e.g. 123456",
+      "submitButton": "Verify and sign in",
+      "backToLogin": "Back to login"
     },
     "pageExpired": {
-      "title": "Page has expired",
-      "message1": "Your session has expired.",
-      "message2": "If you want to continue where you left off,",
-      "clickHere": "click here",
-      "toRestart": "to restart the login process.",
-      "toContinue": "to try to continue."
+      "pill": "Session Expired",
+      "title": "Session has expired",
+      "desc": "For security reasons, your login session expired due to inactivity. You can restart the process to continue.",
+      "helpBold": "Account protection",
+      "helpText": "The temporary authentication session has expired.",
+      "restartButton": "Restart login",
+      "backToLogin": "Back to login"
+    },
+    "requiredAction": {
+      "successPill": "Operation Successful",
+      "successTitle": "Password updated",
+      "successDesc": "Your new password has been set successfully. You can now log in with your new credentials.",
+      "successHelpBold": "Account protected",
+      "successHelpFallback": "Your password has been updated successfully.",
+      "successContinueApp": "Continue to application",
+      "successGoToLogin": "Go to login",
+      "emailPill": "Email Sent",
+      "emailTitle": "Check your inbox",
+      "emailDesc": "We have sent an email with the necessary instructions.",
+      "emailHelpBold": "Instructions sent",
+      "emailHelpFallback": "Please check your inbox and follow the received link to continue.",
+      "actionPill": "Required Action",
+      "actionDesc": "You need to complete this action on your account to continue.",
+      "actionHelpBold": "Automatic redirect",
+      "actionRedirectText": "Redirecting you to the corresponding form...",
+      "actionContinueBtn": "Continue to form",
+      "infoPill": "Information",
+      "infoTitleFallback": "Information",
+      "infoDescFallback": "Your request has been processed successfully.",
+      "continueBtn": "Continue",
+      "backToLogin": "Back to login"
+    },
+    "terms": {
+      "pill": "Terms of Service",
+      "title": "Terms and Conditions",
+      "subtitle": "Please review and accept the terms of use and policies for this laboratory environment to continue.",
+      "acceptCheckbox": "I have read and agree to the Terms of Service and Privacy Policy.",
+      "acceptButton": "Accept and continue",
+      "declineButton": "Decline"
+    },
+    "idpReview": {
+      "pill": "Social Login & IDP",
+      "title": "Review your Profile",
+      "subtitle": "You authenticated via an identity provider. Please confirm your details before continuing.",
+      "bannerTitle": "Linked Account",
+      "bannerDesc": "Data retrieved from your external identity provider",
+      "firstNameLabel": "First Name",
+      "lastNameLabel": "Last Name",
+      "emailLabel": "Email Address",
+      "usernameLabel": "Username",
+      "submitButton": "Confirm and continue",
+      "cancelLink": "Cancel and back to login"
+    },
+    "idpLinkConfirm": {
+      "pill": "Account Linking",
+      "title": "Link Existing Account",
+      "subtitle": "An account already exists with your email address. Confirm to associate your external access.",
+      "noticeIntro": "Your access will be linked to registered account:",
+      "noticeDetail": "In future sign-ins, you can access using either your regular credentials or your external provider.",
+      "submitButton": "Link account",
+      "cancelButton": "Cancel"
+    },
+    "idpLinkEmail": {
+      "pill": "Email Confirmation",
+      "title": "Confirm Account Linking",
+      "subtitle": "An email has been sent to verify your identity and associate your external identity provider.",
+      "helpBold": "Didn't receive the email?",
+      "helpText": "Check your spam or junk folder. If you still cannot find it, you can request a new link.",
+      "resendButton": "Resend confirmation email",
+      "backToLogin": "Back to login"
+    },
+    "selectAuthenticator": {
+      "pill": "Identity Verification",
+      "title": "Choose an access method",
+      "subtitle": "You have multiple authentication factors configured. Select how you want to continue.",
+      "backToLogin": "Back to login",
+      "passwordTitle": "Password",
+      "passwordDesc": "Sign in using your account password",
+      "totpTitle": "Authentication Code",
+      "totpDesc": "Google Authenticator, Microsoft Authenticator or TOTP code",
+      "webauthnTitle": "Security Key or Passkey",
+      "webauthnDesc": "Windows Hello, fingerprint or physical USB key (FIDO2)"
+    },
+    "logoutConfirm": {
+      "pill": "Sign Out",
+      "title": "Do you want to log out?",
+      "subtitle": "You are about to end your active session. You will need to sign in again to access.",
+      "cancelButton": "Stay signed in",
+      "logoutButton": "Log out"
+    },
+    "webauthn": {
+      "pill": "FIDO2 & Passkeys",
+      "title": "Register Security Key",
+      "subtitle": "Add a physical key (YubiKey), device biometrics (Windows Hello, Touch ID) or smartphone to sign in securely without passwords.",
+      "boxTitle": "Biometric & Hardware Key Authentication",
+      "boxDesc": "Have your fingerprint sensor, Windows Hello PIN or USB security key ready before proceeding.",
+      "labelName": "Key descriptive name",
+      "placeholderName": "e.g. Work laptop or YubiKey 5C",
+      "submitButton": "Register security key",
+      "skipLink": "Skip for now",
+      "errorUnsupported": "Your browser or device does not support WebAuthn / FIDO2."
+    },
+    "oauthGrant": {
+      "pill": "OAuth 2.0",
+      "title": "Authorize Application",
+      "subtitle": "requests access to your user account",
+      "scopesTitle": "Requested permissions:",
+      "alertNotice": "You can revoke these permissions at any time from your account management console.",
+      "acceptButton": "Allow access",
+      "cancelButton": "Deny"
+    },
+    "recoveryCodesConfig": {
+      "step": "Step 2 of 2",
+      "title": "2FA Recovery Codes",
+      "subtitle": "Save these one-time backup codes in a safe place. You will need them if you lose your phone or security key.",
+      "copyAll": "Copy all",
+      "downloadTxt": "Download file (.txt)",
+      "copied": "Codes copied!",
+      "confirmCheck": "I have safely backed up these recovery codes in a secure location.",
+      "continueButton": "Confirm and continue"
+    },
+    "recoveryCodeInput": {
+      "title": "Recovery Code",
+      "subtitle": "Enter one of your emergency backup codes to verify your identity and log in.",
+      "label": "Backup code",
+      "placeholder": "8492-1049",
+      "submitButton": "Verify and sign in",
+      "backLink": "Back to standard methods"
+    },
+    "deleteAccountConfirm": {
+      "title": "Delete your account?",
+      "warningBold": "Irreversible warning:",
+      "warningDesc": "Your credentials, active sessions and all personal data linked to your profile in dev will be permanently deleted.",
+      "confirmButton": "Delete account",
+      "cancelButton": "Cancel"
+    },
+    "deviceVerify": {
+      "title": "Link device",
+      "subtitle": "Enter the alphanumeric code displayed on your console, CLI or TV screen.",
+      "label": "Device link code",
+      "placeholder": "WDJB-HGXX",
+      "submitButton": "Continue and authorize"
     },
     "error": {
-      "title": "Error",
-      "backToApplication": "Back to application"
+      "expiredTokenPill": "Expired Token",
+      "expiredTokenTitle": "The link has expired",
+      "expiredTokenDesc": "This link is no longer valid because it was already used or exceeded its validity period.",
+      "expiredTokenHelpBold": "How to continue?",
+      "expiredTokenHelpText": "Request a new reset link with your registered email.",
+      "expiredTokenButton": "Request new link",
+      "sessionExpiredPill": "Session Expired",
+      "sessionExpiredTitle": "Session has expired",
+      "sessionExpiredDesc": "For security reasons, your login session expired due to inactivity. You can restart the process to continue.",
+      "sessionExpiredHelpBold": "Account protection",
+      "sessionExpiredHelpText": "The temporary authentication session has expired.",
+      "sessionRestartButton": "Restart login",
+      "redirectPill": "Redirect Error",
+      "redirectTitle": "Unauthorized request",
+      "redirectDesc": "Could not complete the flow because the return parameters are not authorized for this client.",
+      "generalPill": "Server Error",
+      "generalTitle": "Error processing request",
+      "generalDesc": "An unexpected error occurred while processing the request.",
+      "techLabel": "Server Detail",
+      "techFallback": "Unspecified error",
+      "backToApplication": "Back to application",
+      "backToLogin": "Back to login"
     }
   }
 }

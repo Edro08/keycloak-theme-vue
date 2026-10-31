@@ -1,0 +1,253 @@
+/* ==========================================================================
+   Login Page: Modern Split-Card Layout
+   ========================================================================== */
+
+.kc-split-card {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  max-width: 880px;
+  width: 100%;
+  min-height: 520px;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12),
+              0 0 0 1px rgba(15, 23, 42, 0.05);
+  margin: auto;
+  transition: all 0.3s ease;
+}
+
+/* ---------------- Left / Brand Column ---------------- */
+.kc-split-brand {
+  position: relative;
+  background: var(--dark-header-gradient);
+  padding: 2.5rem 2rem;
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.kc-brand-glow-1 {
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 200px;
+  height: 200px;
+  background: rgba(59, 130, 246, 0.35);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.kc-brand-glow-2 {
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  background: rgba(147, 51, 234, 0.3);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.kc-brand-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.kc-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.kc-brand-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--primary-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.kc-brand-svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-white);
+}
+
+.kc-brand-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+}
+
+.kc-brand-pitch {
+  margin: 2rem 0;
+}
+
+.kc-brand-pitch-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 0.75rem 0;
+  color: var(--color-white);
+}
+
+.kc-brand-pitch-desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-slate-300);
+  margin: 0;
+}
+
+/* ---------------- Right / Form Column ---------------- */
+.kc-split-form-container {
+  padding: 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--card-bg);
+}
+
+.kc-split-form {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.kc-split-form-lg {
+  max-width: 440px;
+}
+
+.kc-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .kc-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.kc-form-header {
+  margin-bottom: 1.75rem;
+}
+
+.kc-form-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  margin: 0 0 0.35rem 0;
+  letter-spacing: -0.02em;
+}
+
+.kc-form-subtitle {
+  font-size: 0.82rem;
+  color: var(--color-slate-500);
+  margin: 0;
+}
+
+/* ---------------- Responsive Adaptations ---------------- */
+@media (max-width: 768px) {
+  .kc-split-card {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    border-radius: var(--radius-md);
+  }
+
+  .kc-split-brand {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .kc-brand-pitch {
+    margin: 1.25rem 0;
+  }
+
+  .kc-brand-pitch-title {
+    font-size: 1.25rem;
+  }
+
+  .kc-split-form-container {
+    padding: 1.75rem 1.5rem;
+  }
+}
+
+/* ---------------- Social IDP Login Buttons ---------------- */
+.kc-social-section {
+  margin-top: 1.25rem;
+}
+
+.kc-divider-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.kc-divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-slate-200);
+}
+
+.kc-divider-text {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-slate-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.kc-social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.kc-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: 100%;
+  height: var(--height-input);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-sm);
+  color: var(--color-slate-700);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: all 0.15s ease;
+}
+
+.kc-social-btn:hover {
+  background-color: var(--color-slate-50);
+  border-color: var(--color-slate-300);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+.kc-social-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.kc-social-text {
+  line-height: 1;
+}

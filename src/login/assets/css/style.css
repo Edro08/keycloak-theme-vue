@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Keycloak Vue Theme - Main Stylesheet
+   ========================================================================== */
+
+/* 1. Theme Foundations: Design Tokens, Resets, Grids & Main Layout */
+@import "./theme.css";
+
+/* 2. Reusable UI Components: Buttons, Inputs, Alerts, Pills, Header/Language */
+@import "./components.css";
+
+/* 3. Specialized Form & Flow Styles */
+@import "./forms/login.css";
+@import "./forms/compact.css";
+@import "./forms/totp.css";
+@import "./forms/standard.css";

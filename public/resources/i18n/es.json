@@ -1,42 +1,288 @@
 {
+  "brand": {
+    "pitchTitle": "Acceso Unificado & Seguro",
+    "pitchDesc": "Plataforma centralizada de autenticación y gestión de identidades corporativas.",
+    "trustText": "Protección de identidad y sesiones seguras"
+  },
   "pages": {
     "login": {
       "title": "Inicia sesión con tu cuenta",
-      "usernameLabel": "Usuario",
+      "subtitle": "Ingresa tus credenciales para acceder a tu cuenta",
+      "usernameLabel": "Usuario o Correo",
+      "usernamePlaceholder": "nombre@empresa.com",
       "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "••••••••",
       "forgotPassword": "¿Olvidaste tu contraseña?",
       "rememberMe": "Recordarme",
-      "submitButton": "Iniciar sesión"
+      "submitButton": "Iniciar sesión",
+      "noAccount": "¿No tienes una cuenta?",
+      "registerLink": "Regístrate"
+    },
+    "register": {
+      "title": "Registrarse",
+      "subtitle": "Ingresa tus datos personales para crear tu acceso",
+      "firstNameLabel": "Nombre",
+      "firstNamePlaceholder": "Juan",
+      "lastNameLabel": "Apellidos",
+      "lastNamePlaceholder": "Pérez",
+      "emailLabel": "Correo Electrónico",
+      "emailPlaceholder": "juan.perez@empresa.com",
+      "usernameLabel": "Nombre de usuario",
+      "usernamePlaceholder": "juanperez",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "••••••••",
+      "passwordConfirmLabel": "Confirmar Contraseña",
+      "passwordConfirmPlaceholder": "••••••••",
+      "passwordMismatch": "Las contraseñas no coinciden.",
+      "submitButton": "Crear cuenta",
+      "hasAccount": "¿Ya tienes una cuenta?",
+      "loginLink": "Inicia sesión"
     },
     "resetPassword": {
       "title": "Recuperar contraseña",
-      "usernameLabel": "Usuario",
+      "subtitle": "Ingresa tu usuario o correo electrónico registrado para recibir las instrucciones de restablecimiento.",
+      "usernameLabel": "Usuario o Correo",
+      "usernamePlaceholder": "nombre@empresa.com",
       "infoMessage": {
         "duplicateEmailsAllowed": "Ingresa tu nombre de usuario y te enviaremos instrucciones para restablecer tu contraseña.",
         "default": "Ingresa tu nombre de usuario o email y te enviaremos instrucciones para restablecer tu contraseña."
       },
-      "backToLogin": "Volver al inicio de sesión",
-      "submitButton": "Enviar"
+      "submitButton": "Enviar instrucciones",
+      "backToLogin": "Volver al inicio de sesión"
     },
     "updatePassword": {
       "title": "Actualizar contraseña",
+      "subtitle": "Establece una nueva contraseña segura para tu cuenta.",
       "passwordNewLabel": "Nueva contraseña",
+      "passwordNewPlaceholder": "••••••••",
       "passwordConfirmLabel": "Confirmar contraseña",
+      "passwordConfirmPlaceholder": "••••••••",
       "logoutOtherSessions": "Cerrar sesión en otros dispositivos",
-      "submitButton": "Actualizar",
-      "cancelButton": "Cancelar"
+      "submitButton": "Actualizar contraseña",
+      "cancelButton": "Cancelar",
+      "backToLogin": "Volver al inicio de sesión"
+    },
+    "updateProfile": {
+      "pill": "Acción Requerida",
+      "title": "Completa tu perfil",
+      "subtitle": "Por favor verifica o actualiza la información básica de tu cuenta para poder continuar.",
+      "firstNameLabel": "Nombre",
+      "firstNamePlaceholder": "Juan",
+      "lastNameLabel": "Apellidos",
+      "lastNamePlaceholder": "Pérez",
+      "emailLabel": "Correo Electrónico",
+      "emailPlaceholder": "juan.perez@empresa.com",
+      "usernameLabel": "Nombre de usuario",
+      "usernamePlaceholder": "juanperez",
+      "submitButton": "Guardar y continuar",
+      "cancelButton": "Cancelar y volver al inicio"
+    },
+    "verifyEmail": {
+      "pill": "Verificación Pendiente",
+      "title": "Revisa tu correo",
+      "desc": "Hemos enviado un enlace de confirmación a",
+      "descEnd": "Por favor abre el enlace para activar tu cuenta.",
+      "helpBold": "¿No recibiste el correo?",
+      "helpText": "Revisa tu carpeta de correo no deseado o spam. Si aún no lo encuentras, solicita un nuevo enlace abajo.",
+      "resendButton": "Reenviar correo de verificación",
+      "backToLogin": "Volver al inicio de sesión"
+    },
+    "configureTotp": {
+      "pill": "Autenticación de Dos Factores",
+      "title": "Configurar autenticador (OTP)",
+      "desc": "Escanea el código QR con tu aplicación autenticadora (Google Authenticator, Microsoft Authenticator o Authy) e introduce el código generado.",
+      "qrHint": "Abre tu aplicación y escanea esta imagen",
+      "manualToggle": "¿No puedes escanear el código? Ver clave manual",
+      "manualBack": "← Volver a mostrar código QR",
+      "manualTitle": "Clave Secreta Manual",
+      "manualHint": "Introduce esta clave directamente en tu aplicación de autenticación.",
+      "copyBtn": "Copiar",
+      "copiedBtn": "¡Copiado!",
+      "otpLabel": "Código de autenticación",
+      "otpPlaceholder": "Ej. 123456",
+      "deviceLabel": "Nombre del dispositivo (opcional)",
+      "devicePlaceholder": "Ej. Mi celular / Google Authenticator",
+      "logoutOtherSessions": "Cerrar sesión en otros dispositivos",
+      "submitButton": "Guardar y Activar 2FA",
+      "backToLogin": "Volver al inicio de sesión"
+    },
+    "loginOtp": {
+      "pill": "Verificación en Dos Pasos",
+      "title": "Código de autenticación",
+      "desc": "Introduce el código de 6 dígitos que muestra tu aplicación de autenticación para verificar tu identidad.",
+      "deviceSelectorLabel": "Selecciona tu dispositivo",
+      "otpLabel": "Código temporal",
+      "otpPlaceholder": "Ej. 123456",
+      "submitButton": "Verificar e iniciar sesión",
+      "backToLogin": "Volver al inicio de sesión"
     },
     "pageExpired": {
-      "title": "La página ha expirado",
-      "message1": "Tu sesión ha expirado.",
-      "message2": "Si deseas continuar donde lo dejaste,",
-      "clickHere": "haz clic aquí",
-      "toRestart": "para reiniciar el proceso de inicio de sesión.",
-      "toContinue": "para intentar continuar."
+      "pill": "Sesión Expirada",
+      "title": "La sesión ha caducado",
+      "desc": "Por seguridad, la sesión de acceso ha vencido debido a un periodo prolongado de inactividad. Puedes reiniciar el proceso para continuar.",
+      "helpBold": "Protección de cuenta",
+      "helpText": "La sesión temporal de autenticación ha vencido.",
+      "restartButton": "Reiniciar inicio de sesión",
+      "backToLogin": "Volver al inicio de sesión"
+    },
+    "requiredAction": {
+      "successPill": "Operación Exitosa",
+      "successTitle": "Contraseña actualizada",
+      "successDesc": "Tu nueva contraseña ha sido establecida correctamente. Ya puedes acceder con tus nuevas credenciales.",
+      "successHelpBold": "Cuenta protegida",
+      "successHelpFallback": "Tu contraseña ha sido actualizada con éxito.",
+      "successContinueApp": "Continuar a la aplicación",
+      "successGoToLogin": "Ir al inicio de sesión",
+      "emailPill": "Correo Enviado",
+      "emailTitle": "Revisa tu bandeja de entrada",
+      "emailDesc": "Hemos enviado un correo electrónico con las instrucciones necesarias.",
+      "emailHelpBold": "Instrucciones enviadas",
+      "emailHelpFallback": "Por favor revisa tu bandeja de entrada y sigue el enlace recibido para continuar.",
+      "actionPill": "Acción Requerida",
+      "actionDesc": "Se requiere completar esta acción en tu cuenta para poder continuar.",
+      "actionHelpBold": "Redirección automática",
+      "actionRedirectText": "Te estamos dirigiendo al formulario correspondiente...",
+      "actionContinueBtn": "Continuar al formulario",
+      "infoPill": "Información",
+      "infoTitleFallback": "Información",
+      "infoDescFallback": "Tu solicitud ha sido procesada correctamente.",
+      "continueBtn": "Continuar",
+      "backToLogin": "Volver al inicio de sesión"
+    },
+    "terms": {
+      "pill": "Términos del Servicio",
+      "title": "Términos y Condiciones",
+      "subtitle": "Por favor revisa y acepta los términos de uso y políticas del entorno de laboratorio para continuar.",
+      "acceptCheckbox": "He leído y acepto los Términos del Servicio y las Políticas de Privacidad.",
+      "acceptButton": "Aceptar y continuar",
+      "declineButton": "Rechazar"
+    },
+    "idpReview": {
+      "pill": "Social Login & IDP",
+      "title": "Revisa tu Perfil",
+      "subtitle": "Te has autenticado mediante un proveedor de identidad. Por favor confirma tus datos antes de continuar.",
+      "bannerTitle": "Cuenta vinculada",
+      "bannerDesc": "Los datos provienen de tu proveedor de identidad externo",
+      "firstNameLabel": "Nombre",
+      "lastNameLabel": "Apellido",
+      "emailLabel": "Correo Electrónico",
+      "usernameLabel": "Nombre de Usuario",
+      "submitButton": "Confirmar y continuar",
+      "cancelLink": "Cancelar y volver al inicio de sesión"
+    },
+    "idpLinkConfirm": {
+      "pill": "Vinculación de Cuentas",
+      "title": "Vincular Cuenta Existente",
+      "subtitle": "Ya existe una cuenta con tu correo electrónico. Confirma para asociar tu acceso externo.",
+      "noticeIntro": "Se vinculará el acceso con tu cuenta registrada:",
+      "noticeDetail": "En futuros accesos podrás ingresar tanto con tus credenciales habituales como mediante tu proveedor externo.",
+      "submitButton": "Vincular cuenta",
+      "cancelButton": "Cancelar"
+    },
+    "idpLinkEmail": {
+      "pill": "Confirmación por Correo",
+      "title": "Confirma la Vinculación",
+      "subtitle": "Se ha enviado un correo electrónico para verificar tu identidad y asociar el proveedor externo.",
+      "helpBold": "¿No recibiste el correo?",
+      "helpText": "Revisa tu carpeta de spam o correo no deseado. Si aún no llega, puedes solicitar un nuevo reenvío.",
+      "resendButton": "Reenviar correo de confirmación",
+      "backToLogin": "Volver al inicio de sesión"
+    },
+    "selectAuthenticator": {
+      "pill": "Verificación de Identidad",
+      "title": "Elige un método de acceso",
+      "subtitle": "Tienes varios factores de autenticación configurados. Selecciona cómo deseas continuar.",
+      "backToLogin": "Volver al inicio de sesión",
+      "passwordTitle": "Contraseña",
+      "passwordDesc": "Ingresa con tu contraseña habitual de tu cuenta",
+      "totpTitle": "Código de Autenticación",
+      "totpDesc": "Google Authenticator, Microsoft Authenticator o código TOTP",
+      "webauthnTitle": "Llave de Seguridad o Passkey",
+      "webauthnDesc": "Windows Hello, huella digital o llave física USB (FIDO2)"
+    },
+    "logoutConfirm": {
+      "pill": "Cierre de Sesión",
+      "title": "¿Deseas cerrar sesión?",
+      "subtitle": "Estás a punto de finalizar tu sesión activa. Para volver a acceder deberás introducir tus credenciales nuevamente.",
+      "cancelButton": "Permanecer conectado",
+      "logoutButton": "Cerrar sesión"
+    },
+    "webauthn": {
+      "pill": "FIDO2 & Passkeys",
+      "title": "Registra tu Clave de Seguridad",
+      "subtitle": "Añade una llave física (YubiKey), biometría de tu equipo (Windows Hello, Touch ID) o tu smartphone para ingresar sin contraseñas.",
+      "boxTitle": "Autenticación Biométrica y Llaves Físicas",
+      "boxDesc": "Ten listo tu lector de huella, PIN de Windows Hello o conecta tu llave USB antes de continuar.",
+      "labelName": "Nombre descriptivo de la clave",
+      "placeholderName": "Ej. Mi laptop de trabajo o YubiKey 5C",
+      "submitButton": "Registrar clave de seguridad",
+      "skipLink": "Omitir por ahora",
+      "errorUnsupported": "Tu navegador o dispositivo no soporta autenticación WebAuthn / FIDO2."
+    },
+    "oauthGrant": {
+      "pill": "OAuth 2.0",
+      "title": "Autorizar Aplicación",
+      "subtitle": "solicita acceso a tu cuenta de usuario",
+      "scopesTitle": "Permisos solicitados:",
+      "alertNotice": "Puedes revocar estos permisos en cualquier momento desde tu consola de cuenta.",
+      "acceptButton": "Permitir acceso",
+      "cancelButton": "Denegar"
+    },
+    "recoveryCodesConfig": {
+      "step": "Paso 2 de 2",
+      "title": "Códigos de recuperación 2FA",
+      "subtitle": "Guarda estos códigos de un solo uso en un lugar seguro. Te permitirán acceder si pierdes el teléfono o la llave de seguridad.",
+      "copyAll": "Copiar todos",
+      "downloadTxt": "Descargar archivo (.txt)",
+      "copied": "¡Códigos copiados!",
+      "confirmCheck": "He guardado y respaldado estos códigos de recuperación en un lugar seguro y confidencial.",
+      "continueButton": "Confirmar y continuar"
+    },
+    "recoveryCodeInput": {
+      "title": "Código de recuperación",
+      "subtitle": "Introduce uno de tus códigos de emergencia de un solo uso para verificar tu identidad y acceder.",
+      "label": "Código de respaldo",
+      "placeholder": "8492-1049",
+      "submitButton": "Verificar e ingresar",
+      "backLink": "Volver a métodos habituales"
+    },
+    "deleteAccountConfirm": {
+      "title": "¿Eliminar tu cuenta?",
+      "warningBold": "Advertencia irreversible:",
+      "warningDesc": "Se eliminarán tus credenciales, sesiones activas y toda la información personal asociada a tu perfil en dev.",
+      "confirmButton": "Eliminar cuenta",
+      "cancelButton": "Cancelar"
+    },
+    "deviceVerify": {
+      "title": "Vincular dispositivo",
+      "subtitle": "Introduce el código alfanumérico que aparece en la pantalla de tu consola, CLI o televisor.",
+      "label": "Código de vinculación",
+      "placeholder": "WDJB-HGXX",
+      "submitButton": "Continuar y autorizar"
     },
     "error": {
-      "title": "Error",
-      "backToApplication": "Volver a la aplicación"
+      "expiredTokenPill": "Token Caducado",
+      "expiredTokenTitle": "El enlace ha expirado",
+      "expiredTokenDesc": "Este enlace ya no es válido porque se utilizó anteriormente o superó su tiempo de vigencia permitido.",
+      "expiredTokenHelpBold": "¿Cómo continuar?",
+      "expiredTokenHelpText": "Solicita un nuevo enlace de restablecimiento con tu correo electrónico registrado.",
+      "expiredTokenButton": "Solicitar nuevo enlace",
+      "sessionExpiredPill": "Sesión Expirada",
+      "sessionExpiredTitle": "La sesión ha caducado",
+      "sessionExpiredDesc": "Por seguridad, la sesión de acceso ha vencido debido a un periodo prolongado de inactividad. Puedes reiniciar el proceso para continuar.",
+      "sessionExpiredHelpBold": "Protección de cuenta",
+      "sessionExpiredHelpText": "La sesión temporal de autenticación ha vencido.",
+      "sessionRestartButton": "Reiniciar inicio de sesión",
+      "redirectPill": "Error de Redirección",
+      "redirectTitle": "Solicitud no autorizada",
+      "redirectDesc": "No se pudo completar el flujo porque los parámetros de retorno no están autorizados para este cliente.",
+      "generalPill": "Error del Servidor",
+      "generalTitle": "Error al procesar la solicitud",
+      "generalDesc": "Ocurrió un error inesperado al procesar la solicitud.",
+      "techLabel": "Detalle del Servidor",
+      "techFallback": "Error no especificado",
+      "backToApplication": "Volver a la aplicación",
+      "backToLogin": "Volver al inicio de sesión"
     }
   }
 }
