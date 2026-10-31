@@ -192,7 +192,7 @@
         },
         oauth: {
           code: "<#if oauth?? && oauth.code??>${oauth.code?js_string}</#if>",
-          action: "<#if url?? && url.oauthAction??>${cleanUrl(url.oauthAction)?js_string}</#if>",
+          action: cleanUrl("<#if url?? && url.oauthAction??>${url.oauthAction?js_string}</#if>"),
           clientScopesRequested: [
             <#if oauth?? && oauth.clientScopesRequested??>
               <#list oauth.clientScopesRequested as clientScope>
@@ -223,7 +223,7 @@
           generatedAt: "<#if recoveryAuthnCodesConfigBean?? && recoveryAuthnCodesConfigBean.generatedAt??>${recoveryAuthnCodesConfigBean.generatedAt?c}</#if>"
         },
         device: {
-          verificationAction: "<#if url?? && url.oauth2DeviceVerificationAction??>${cleanUrl(url.oauth2DeviceVerificationAction)?js_string}</#if>",
+          verificationAction: cleanUrl("<#if url?? && url.oauth2DeviceVerificationAction??>${url.oauth2DeviceVerificationAction?js_string}</#if>"),
           userCode: "<#if deviceVerification?? && deviceVerification.userCode??>${deviceVerification.userCode?js_string}</#if>"
         },
         triggered_from_aia: <#if triggered_from_aia?? && triggered_from_aia>true<#else>false</#if>
