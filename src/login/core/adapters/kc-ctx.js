@@ -78,7 +78,10 @@ export const useKeycloakContext = () => {
         locale: {
             current: kc.locale?.current || 'es',
             currentLabel: kc.locale?.currentLabel || 'Español',
-            supported: kc.locale?.supported || [],
+            supported: (kc.locale?.supported || []).map(l => ({
+                ...l,
+                url: safeUrl(l.url, '#')
+            })),
         },
 
         // URLs (Sanitized against javascript: / data: protocols)
@@ -113,7 +116,10 @@ export const useKeycloakContext = () => {
         // Social IDP Providers
         social: {
             displayInfo: kc.social?.displayInfo || false,
-            providers: kc.social?.providers || [],
+            providers: (kc.social?.providers || []).map(p => ({
+                ...p,
+                loginUrl: safeUrl(p.loginUrl, '#')
+            })),
         },
 
         // Multiple Authenticator Selections
@@ -124,7 +130,10 @@ export const useKeycloakContext = () => {
 
         // OAuth 2.0 Consent & Client
         oauth: kc.oauth || { clientScopesRequested: [] },
-        client: kc.client || {},
+        client: {
+            ...kc.client,
+            baseUrl: safeUrl(kc.client?.baseUrl, '')
+        },
 
         // Recovery codes config
         recoveryCodesConfig: kc.recoveryCodesConfig || { generatedRecoveryAuthnCodesList: [] },

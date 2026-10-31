@@ -1,17 +1,17 @@
 <script setup>
   import { computed, onMounted } from 'vue';
-  import { useKeycloakContext } from '@/login/core/adapters/kc-ctx';
+  import { useKeycloakContext, safeUrl } from '@/login/core/adapters/kc-ctx';
   import Button from "@/login/components/ui/Button.vue";
 
   const { urls, realm, config } = useKeycloakContext();
   
   const texts = config.pages?.requiredAction || {};
   const rawActionUri = window.kc_context?.actionUri || '';
-  const actionUri = rawActionUri ? rawActionUri.replace(/&amp;/g, '&') : '';
+  const actionUri = safeUrl(rawActionUri ? rawActionUri.replace(/&amp;/g, '&') : '', '');
   const requiredActions = window.kc_context?.requiredActions || [];
   
   const rawRedirectUri = window.kc_context?.pageRedirectUri || window.kc_context?.client?.baseUrl || '';
-  const pageRedirectUri = rawRedirectUri ? rawRedirectUri.replace(/&amp;/g, '&') : '';
+  const pageRedirectUri = safeUrl(rawRedirectUri ? rawRedirectUri.replace(/&amp;/g, '&') : '', '');
 
   const messageType = (window.kc_context?.message?.type || '').toLowerCase();
   const messageSummary = window.kc_context?.message?.summary || '';

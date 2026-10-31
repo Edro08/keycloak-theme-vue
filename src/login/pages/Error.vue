@@ -1,13 +1,13 @@
 <script setup>
   import { computed } from 'vue';
-  import { useKeycloakContext } from '@/login/core/adapters/kc-ctx';
+  import { useKeycloakContext, safeUrl } from '@/login/core/adapters/kc-ctx';
   import Button from "@/login/components/ui/Button.vue";
 
   const { message, urls, realm, config } = useKeycloakContext();
   
   const texts = config.pages?.error || {};
-  const clientBaseUrl = window.kc_context?.client?.baseUrl || urls.login || '/';
-  const loginRestartUrl = urls.loginRestartFlowUrl || urls.login || '/';
+  const clientBaseUrl = safeUrl(window.kc_context?.client?.baseUrl, urls.login || '/');
+  const loginRestartUrl = safeUrl(urls.loginRestartFlowUrl, urls.login || '/');
 
   // Check if message indicates expiration
   const isExpired = computed(() => {

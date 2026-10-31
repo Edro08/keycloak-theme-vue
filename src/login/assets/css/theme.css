@@ -1,10 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
-
 /* ==========================================================================
-   Design Tokens & Variables
+   Design Tokens & Variables (Zero 3rd-party dependencies / CSP Font-src compliant)
    ========================================================================== */
 :root {
-  --font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   
   /* Brand colors */
   --primary-color: #2563eb;
