@@ -1,5 +1,5 @@
 <script setup>
-  import { ref } from 'vue';
+  import { ref, onMounted } from 'vue';
   import { useKeycloakContext } from '@/login/core/adapters/kc-ctx';
   import { useFormSubmit } from '@/login/core/adapters/form-submit';
   import Button from "@/login/components/ui/Button.vue";
@@ -14,6 +14,13 @@
   const totpSecretEncoded = totpData.totpSecretEncoded || '';
   const totpSecret = totpData.totpSecret || '';
   const rawMode = window.kc_context?.mode || 'barcode';
+
+  // Memory hygiene: clean sensitive TOTP secret from global window once read into component
+  onMounted(() => {
+    if (window.kc_context?.totp) {
+      try { delete window.kc_context.totp; } catch (_) {}
+    }
+  });
 
   const otpCode = ref('');
   const userLabel = ref('');

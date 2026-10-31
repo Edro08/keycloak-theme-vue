@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, computed } from 'vue';
+  import { ref, computed, onMounted } from 'vue';
   import { useKeycloakContext } from '@/login/core/adapters/kc-ctx';
 
   const { realm, urls, recoveryCodesConfig, config } = useKeycloakContext();
@@ -11,6 +11,13 @@
 
   const isConfirmed = ref(false);
   const copySuccess = ref(false);
+
+  // Memory hygiene: clean sensitive backup codes from global window once stored in component state
+  onMounted(() => {
+    if (window.kc_context?.recoveryCodesConfig) {
+      try { delete window.kc_context.recoveryCodesConfig; } catch (_) {}
+    }
+  });
 
   // Format code into 4-char groups (e.g. 8492-1049)
   const formatCode = (code) => {

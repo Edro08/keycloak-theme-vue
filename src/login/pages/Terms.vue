@@ -2,6 +2,7 @@
   import { ref, computed } from 'vue';
   import { useKeycloakContext } from '@/login/core/adapters/kc-ctx';
   import { useFormSubmit } from '@/login/core/adapters/form-submit';
+  import { sanitizeHtml } from '@/login/core/adapters/html-sanitizer';
 
   const { realm, urls, message, config, termsText: rawTermsText, termsTitle: rawTermsTitle } = useKeycloakContext();
   const { submitKCForm } = useFormSubmit();
@@ -23,23 +24,13 @@
     <p><em>Al continuar y presionar «Aceptar y continuar», confirmas que comprendes y aceptas operar bajo las condiciones de este entorno de laboratorio (LAB).</em></p>
   `;
 
-  const decodeEntities = (val) => {
-    if (!val) return '';
-    return val
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&quot;/g, '"')
-      .replace(/&#39;/g, "'")
-      .replace(/&amp;/g, '&');
-  };
-
-  // Use Keycloak terms text if provided and valid, otherwise fallback
+  // Safely sanitize terms content before rendering with v-html
   const termsContent = computed(() => {
     const raw = rawTermsText || window.kc_context?.termsText;
     if (raw && raw !== 'termsText' && raw.trim() !== '') {
-      return decodeEntities(raw);
+      return sanitizeHtml(raw);
     }
-    return defaultLabTerms;
+    return sanitizeHtml(defaultLabTerms);
   });
 
   const onAccept = () => {

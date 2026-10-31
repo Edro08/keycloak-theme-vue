@@ -1,5 +1,4 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
@@ -11,19 +10,22 @@ const dirDeployLogin = "dist/keycloak-theme/login/"
 const dirPublic = "public"
 const dirResources = "resources"
 
-export default defineConfig({
+export default defineConfig(({ command, mode }) => ({
   define: {
     'process.env': {}
   },
   plugins: [
     vue(),
-    vueDevTools(),
+    // Only enable DevTools in local development serve, never in production build
+    command === 'serve' && mode === 'development' ? vueDevTools() : null,
     copyPublic(),
-  ],
+  ].filter(Boolean),
   build: {
     outDir: resolve(__dirname, dirDeployLogin + dirResources),
     emptyOutDir: true,
     copyPublicDir: false,
+    sourcemap: false,
+    minify: 'esbuild',
     lib: {
       entry: "src/main.js",
       name: "keycloak-theme",
@@ -36,7 +38,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-})
+}))
 
 function copyPublic() {
   return {

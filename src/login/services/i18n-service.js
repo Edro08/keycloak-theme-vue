@@ -6,6 +6,8 @@
 let cachedLocale = null;
 let cachedTexts = null;
 
+const SUPPORTED_LOCALES = ['es', 'en'];
+
 /**
  * Load locale texts from JSON file
  * @param {string} locale - Locale code (e.g., 'es', 'en')
@@ -13,34 +15,38 @@ let cachedTexts = null;
  * @returns {Promise<Object>} Locale texts
  */
 export async function loadLocale(locale = 'es', resourcesPath = '') {
+  // Validate against supported locales whitelist to prevent path traversal or unexpected input
+  const normalized = (locale || 'es').substring(0, 2).toLowerCase();
+  const safeLocale = SUPPORTED_LOCALES.includes(normalized) ? normalized : 'es';
+
   // Return cached if already loaded
-  if (cachedLocale === locale && cachedTexts) {
+  if (cachedLocale === safeLocale && cachedTexts) {
     return cachedTexts;
   }
 
   // Build the full path
   const basePath = resourcesPath || '/resources';
-  const url = `${basePath}/i18n/${locale}.json`;
+  const url = `${basePath}/i18n/${safeLocale}.json`;
 
   try {
     const response = await fetch(url);
     
     if (!response.ok) {
-      throw new Error(`Failed to load locale ${locale}: ${response.status}`);
+      throw new Error(`Failed to load locale ${safeLocale}: ${response.status}`);
     }
     
     const texts = await response.json();
     
     // Cache the loaded locale
     cachedTexts = texts;
-    cachedLocale = locale;
+    cachedLocale = safeLocale;
     
     return texts;
   } catch (error) {
-    console.error(`Error loading locale ${locale}, falling back to 'es'`, error);
+    console.error(`Error loading locale ${safeLocale}, falling back to 'es'`, error);
     
     // Fallback to Spanish if requested locale fails
-    if (locale !== 'es') {
+    if (safeLocale !== 'es') {
       const basePath = resourcesPath || '/resources';
       const fallbackResponse = await fetch(`${basePath}/i18n/es.json`);
       return await fallbackResponse.json();

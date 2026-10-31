@@ -8,19 +8,34 @@ import { loadLocale } from '@/login/services/i18n-service.js';
 let i18nTexts = null;
 let i18nPromise = null;
 
-const cleanUrl = (url) => (url ? url.replace(/&amp;/g, '&') : '');
+export const safeUrl = (url, fallback = '') => {
+  if (!url || typeof url !== 'string') return fallback;
+  const cleaned = url.replace(/&amp;/g, '&').trim();
+  if (cleaned.startsWith('/') && !cleaned.startsWith('//')) {
+    return cleaned;
+  }
+  try {
+    const parsed = new URL(cleaned, window.location.origin);
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+      return cleaned;
+    }
+  } catch {
+    return fallback;
+  }
+  return fallback;
+};
 
 export const useKeycloakContext = () => {
     // Safely access globals, defaulting to empty objects if not present (e.g. in dev mode or tests)
     const env = window.env || {};
     const kc = window.kc_context || {};
 
-    const restartUrl = cleanUrl(kc.urls?.loginRestartFlowUrl || '');
-    const loginUrl = cleanUrl(kc.urls?.login || '');
+    const restartUrl = safeUrl(kc.urls?.loginRestartFlowUrl || '');
+    const loginUrl = safeUrl(kc.urls?.login || '');
 
     // Load i18n texts if not already loaded
     if (!i18nTexts && !i18nPromise) {
-        const resourcesPath = kc.urls?.resourcesPath || '';
+        const resourcesPath = safeUrl(kc.urls?.resourcesPath || '');
         const currentLocale = kc.locale?.current || env.locale || 'es';
         const lang = currentLocale.substring(0, 2).toLowerCase();
         i18nPromise = loadLocale(lang, resourcesPath).then(texts => {
@@ -33,13 +48,13 @@ export const useKeycloakContext = () => {
         // Realm configuration
         realm: {
             name: kc.realm_config?.name || '',
-            rememberMe: kc.realm_config?.rememberMe || false,
-            resetPasswordAllowed: kc.realm_config?.resetPasswordAllowed || false,
-            registrationAllowed: kc.realm_config?.registrationAllowed || false,
-            loginWithEmailAllowed: kc.realm_config?.loginWithEmailAllowed || true,
-            registrationEmailAsUsername: kc.realm_config?.registrationEmailAsUsername || false,
-            duplicateEmailsAllowed: kc.realm_config?.duplicateEmailsAllowed || false,
-            isAppInitiatedAction: kc.realm_config?.isAppInitiatedAction || false,
+            rememberMe: !!kc.realm_config?.rememberMe,
+            resetPasswordAllowed: !!kc.realm_config?.resetPasswordAllowed,
+            registrationAllowed: !!kc.realm_config?.registrationAllowed,
+            loginWithEmailAllowed: kc.realm_config?.loginWithEmailAllowed ?? true,
+            registrationEmailAsUsername: !!kc.realm_config?.registrationEmailAsUsername,
+            duplicateEmailsAllowed: !!kc.realm_config?.duplicateEmailsAllowed,
+            isAppInitiatedAction: !!kc.realm_config?.isAppInitiatedAction,
         },
 
         // User data
@@ -48,7 +63,7 @@ export const useKeycloakContext = () => {
             firstName: kc.user?.firstName || '',
             lastName: kc.user?.lastName || '',
             email: kc.user?.email || '',
-            editUsernameAllowed: kc.user?.editUsernameAllowed || false,
+            editUsernameAllowed: !!kc.user?.editUsernameAllowed,
         },
 
         // Register form pre-filled data
@@ -66,16 +81,16 @@ export const useKeycloakContext = () => {
             supported: kc.locale?.supported || [],
         },
 
-        // URLs
+        // URLs (Sanitized against javascript: / data: protocols)
         urls: {
-            loginAction: cleanUrl(kc.urls?.loginAction || '#'),
-            loginResetCredentials: cleanUrl(kc.urls?.loginResetCredentials || ''),
-            registrationAction: cleanUrl(kc.urls?.registrationAction || kc.urls?.loginAction || '#'),
-            registration: cleanUrl(kc.urls?.registration || ''),
+            loginAction: safeUrl(kc.urls?.loginAction, '#'),
+            loginResetCredentials: safeUrl(kc.urls?.loginResetCredentials, ''),
+            registrationAction: safeUrl(kc.urls?.registrationAction || kc.urls?.loginAction, '#'),
+            registration: safeUrl(kc.urls?.registration, ''),
             loginRestartFlowUrl: restartUrl,
-            login: restartUrl || loginUrl || '/',
-            logoutConfirmAction: cleanUrl(kc.urls?.logoutConfirmAction || kc.urls?.loginAction || '#'),
-            resourcesPath: cleanUrl(kc.urls?.resourcesPath || ''),
+            login: safeUrl(restartUrl || loginUrl, '/'),
+            logoutConfirmAction: safeUrl(kc.urls?.logoutConfirmAction || kc.urls?.loginAction, '#'),
+            resourcesPath: safeUrl(kc.urls?.resourcesPath, ''),
         },
         
         // Messages

@@ -110,8 +110,8 @@
         pageRedirectUri: "<#if pageRedirectUri??>${pageRedirectUri?js_string}</#if>",
         requiredActions: [<#if requiredActions??><#list requiredActions as action>"${action?js_string}"<#sep>, </#list></#if>],
 
-        // Terms & Conditions
-        termsText: "<#attempt><#if kcSanitize?? && msg("termsText")??>${kcSanitize(msg("termsText"))?js_string}<#elseif msg?? && msg("termsText")??>${msg("termsText")?js_string}</#if><#recover></#recover>",
+        // Terms & Conditions (Strictly sanitized with kcSanitize)
+        termsText: "<#attempt><#if kcSanitize?? && msg("termsText")??>${kcSanitize(msg("termsText"))?js_string}</#if><#recover></#recover>",
         termsTitle: "<#attempt><#if msg?? && msg("termsTitle")??>${msg("termsTitle")?js_string}</#if><#recover></#recover>",
 
         // IDP / Broker Context
