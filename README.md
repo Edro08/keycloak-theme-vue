@@ -11,10 +11,10 @@ Tema de autenticación y autoservicio para **Keycloak**, construido con **Vue 3*
 
 ## ✨ Características Principales
 
-- **Design System con Tokens:** Paleta corporativa, microinteracciones y variables CSS centralizadas en `theme.css` y `components.css`.
+- **Design Tokens & Variables CSS:** Paleta de colores, componentes y variables CSS centralizadas en `theme.css` y `components.css`.
 - **Cobertura Total (21 Pantallas):** Cubre el 100% de los flujos de autenticación, autoservicio, recuperación y autorización de Keycloak.
 - **Autenticación Moderna:** Soporte nativo para llaves físicas FIDO2, biometría (Windows Hello / Touch ID) mediante **WebAuthn / Passkeys**, y **Social Login con Google**.
-- **MFA Empresarial:** Configuración de TOTP con códigos QR / llave manual y sistema de **Códigos de Respaldo 2FA (Backup Codes)** con descarga `.txt` y copiado rápido.
+- **MFA y Respaldo:** Configuración de TOTP con códigos QR / llave manual y sistema de **Códigos de Respaldo 2FA (Backup Codes)** con descarga `.txt` y copiado rápido.
 - **Internacionalización Dinámica (i18n):** Traducciones en Español (`es`) e Inglés (`en`) editables en caliente sin necesidad de recompilar Vite.
 - **Arquitectura Limpia:** Separación estricta entre vistas (`pages/`), componentes atómicos (`components/ui/`), layout (`components/layout/`) y adaptadores del contexto Keycloak (`kc-ctx.js`).
 - **Build Reproducible:** Compilación y despliegue agnóstico mediante Docker y Node 20.
@@ -45,6 +45,15 @@ Tema de autenticación y autoservicio para **Keycloak**, construido con **Vue 3*
 | **Eliminar Cuenta** | `delete-account-confirm.ftl` | `DeleteAccountConfirm.vue` | Diálogo de advertencia destructiva para borrado GDPR |
 | **Cierre de Sesión** | `logout-confirm.ftl` | `LogoutConfirm.vue` | Confirmación de seguridad para finalizar sesión activa |
 | **Errores & Sesión** | `error.ftl` / `page-expired.ftl` | `Error.vue` / `PageExpired.vue` | Manejo de tokens vencidos y sesiones caducadas |
+
+---
+
+## 🌍 Personalización de Textos e Idiomas (i18n)
+
+Los textos de toda la interfaz se encuentran desacoplados en archivos JSON dentro de `public/resources/i18n/`:
+
+- **Editar textos existentes:** Modifica `es.json` o `en.json`. Los cambios se reflejarán **inmediatamente** al recargar el navegador, sin necesidad de ejecutar un nuevo build de Vite.
+- **Agregar un nuevo idioma:** Agrega el archivo `public/resources/i18n/<codigo>.json` y actívalo en la consola de Keycloak (**Realm Settings ➔ Localization**).
 
 ---
 
@@ -94,15 +103,6 @@ docker cp dist/keycloak-theme keycloak:/opt/keycloak/themes/
 2. Dirígete a **Realm Settings** ➔ pestaña **Themes**.
 3. En el campo **Login theme**, selecciona `keycloak-theme`.
 4. Haz clic en **Save**. ¡Tu tema Vue ya está activo en todos los flujos!
-
----
-
-## 🌍 Personalización de Textos e Idiomas (i18n)
-
-Los textos de toda la interfaz se encuentran desacoplados en archivos JSON dentro de `public/resources/i18n/`:
-
-- **Editar textos existentes:** Modifica `es.json` o `en.json`. Los cambios se reflejarán **inmediatamente** al recargar el navegador, sin necesidad de ejecutar un nuevo build de Vite.
-- **Agregar un nuevo idioma:** Agrega el archivo `public/resources/i18n/<codigo>.json` y actívalo en la consola de Keycloak (**Realm Settings ➔ Localization**).
 
 ---
 
