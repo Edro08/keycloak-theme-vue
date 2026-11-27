@@ -1,0 +1,5 @@
+minimumReleaseAgeExclude:
+  - vite@8.4.0
+
+allowBuilds:
+  esbuild: false
