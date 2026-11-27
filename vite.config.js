@@ -12,6 +12,7 @@ const dirResources = "resources"
 
 export default defineConfig(({ command, mode }) => ({
   define: {
+    'process.env.NODE_ENV': JSON.stringify(mode === 'development' ? 'development' : 'production'),
     'process.env': {}
   },
   plugins: [
@@ -21,11 +22,11 @@ export default defineConfig(({ command, mode }) => ({
     copyPublic(),
   ].filter(Boolean),
   build: {
-    outDir: resolve(__dirname, dirDeployLogin + dirResources),
+    outDir: resolve(import.meta.dirname, dirDeployLogin + dirResources),
     emptyOutDir: true,
     copyPublicDir: false,
     sourcemap: false,
-    minify: 'esbuild',
+    minify: true,
     lib: {
       entry: "src/main.js",
       name: "keycloak-theme",
@@ -44,8 +45,8 @@ function copyPublic() {
   return {
     name: 'copy-public',
     closeBundle() {
-      const source = resolve(__dirname, dirPublic);
-      const destination = resolve(__dirname, dirDeployLogin);
+      const source = resolve(import.meta.dirname, dirPublic);
+      const destination = resolve(import.meta.dirname, dirDeployLogin);
       if (fs.existsSync(source)) {
         fs.cpSync(source, destination, { recursive: true, force: true });
       }

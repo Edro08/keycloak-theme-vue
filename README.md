@@ -2,7 +2,7 @@
 
 [![Keycloak](https://img.shields.io/badge/Keycloak-26.x%2B-blue.svg?logo=keycloak&logoColor=white)](https://www.keycloak.org/)
 [![Vue 3](https://img.shields.io/badge/Vue-3.x-42b883.svg?logo=vuedotjs&logoColor=white)](https://vuejs.org/)
-[![Vite](https://img.shields.io/badge/Vite-7.x-646CFF.svg?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8.x-646CFF.svg?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Tema de autenticación y autoservicio para **Keycloak**, construido con **Vue 3**, **Vite** y **Design Tokens (CSS Variables)**. Diseñado con arquitectura desacoplada, soporte para múltiples idiomas en caliente y cobertura para los flujos de identidad.
@@ -17,7 +17,7 @@ Tema de autenticación y autoservicio para **Keycloak**, construido con **Vue 3*
 - **MFA y Respaldo:** Configuración de TOTP con códigos QR / llave manual y sistema de **Códigos de Respaldo 2FA (Backup Codes)** con descarga `.txt` y copiado rápido.
 - **Internacionalización Dinámica (i18n):** Traducciones en Español (`es`) e Inglés (`en`) editables en caliente sin necesidad de recompilar Vite.
 - **Arquitectura Limpia:** Separación estricta entre vistas (`pages/`), componentes atómicos (`components/ui/`), layout (`components/layout/`) y adaptadores del contexto Keycloak (`kc-ctx.js`).
-- **Build Reproducible:** Compilación y despliegue agnóstico mediante Docker y Node 20.
+- **Build Reproducible:** Compilación y despliegue agnóstico mediante Docker y Node 24.
 
 ---
 
@@ -61,7 +61,7 @@ Los textos de toda la interfaz se encuentran desacoplados en archivos JSON dentr
 
 - [Docker](https://www.docker.com/) o [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Recomendado para compilar sin dependencias de host).
 - [Keycloak](https://www.keycloak.org/) 24.x, 25.x o 26.x (Instancia local o en contenedor).
-- *(Opcional para desarrollo local)*: [Node.js](https://nodejs.org/) `>= 20.19.0` y [pnpm](https://pnpm.io/) `>= 9.x`.
+- *(Opcional para desarrollo local)*: [Node.js](https://nodejs.org/) `>= 24.22.3` y [pnpm](https://pnpm.io/) `>= 12.x`.
 
 ---
 
@@ -84,7 +84,7 @@ cd keycloak-theme-vue
 Puedes compilar sin necesidad de tener Node instalado en tu máquina mediante el contenedor oficial de Docker:
 
 ```bash
-docker run --rm -v "%cd%:/app" -w /app node:20-alpine sh -c "corepack enable && pnpm install && pnpm run build"
+docker run --rm -v "%cd%:/app" -w /app node:24-alpine sh -c "corepack enable && pnpm install && pnpm run build"
 ```
 
 Los artefactos listos para Keycloak se generarán automáticamente en `dist/keycloak-theme/`.
